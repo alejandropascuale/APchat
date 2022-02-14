@@ -33,7 +33,7 @@ const Home = () => {
                 onPress={() => NavigationContainer.navigate('Chat')}
                 style={styles.chatButton}
                 >
-                <Entypo name='chat' size={24} color={'lightGray'} />
+                <Entypo name='chat' size={24} color={colors.lightGray} />
             </TouchableOpacity>
         </View>
     );
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
         paddingBottom: 24,
     },
     input: {
-        backgroundColor: '#F6F7FB',
+        backgroundColor: colors.mediumGray,
         height: 58,
         marginBottom: 20,
         fontSize: 16,
