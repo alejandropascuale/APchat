@@ -19,6 +19,30 @@ export default function Login ({  navigation }) {
     return (
         <View style={styles.container}>
             <Image source={backgroundImage} style={styles.backImage} />
+            <View style={styles.whiteSheet} />
+            <SafeAreaView style={styles.form}>
+                <Text style={styles.title}>Login</Text>
+                <TextInput 
+                    style={styles.input}
+                    placeholder='Enter email'
+                    autoCapitalize='none'
+                    keyboardType='email-address'
+                    textContentType='emailAddress'
+                    autoFocus={true}
+                    value={email}
+                    onChangeText={(text) => setEmail(text)}
+                />
+                <TextInput 
+                    style={styles.input}
+                    placeholder='Enter password'
+                    autoCapitalize='none'
+                    autoCorrect={false}
+                    secureTextEntry={true}
+                    textContentType='password'
+                    value={password}
+                    onChangeText={(text) => setPassword(text)}
+                />
+            </SafeAreaView>
         </View>
     )
 }
