@@ -42,6 +42,15 @@ export default function Login ({  navigation }) {
                     value={password}
                     onChangeText={(text) => setPassword(text)}
                 />
+                <TouchableOpacity style={styles.button} onPress={onHandleLogin}>
+                    <Text style={{fontWeight: 'bold', color: '#fff', fontSize: 18}}> Log in</Text>
+                </TouchableOpacity>
+                <View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center', alignSelf: 'center'}}>
+                    <Text style={{ color: 'gray', fontWeight: '600', fontSize: 14}}>Don't have an account?</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
+                        <Text style={{ color: '#f57c00', fontWeight: '600', fontSize: 16}}> Sign up </Text>
+                    </TouchableOpacity>
+                </View>
             </SafeAreaView>
         </View>
     )
@@ -50,14 +59,14 @@ export default function Login ({  navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
     },
     title: {
         fontSize: 36,
         fontWeight: 'bold',
         color: 'orange',
         alignSelf: 'center',
-        paddingBottom: 24
+        paddingBottom: 24,
     },
     input: {
         backgroundColor: '#F6F7FB',
@@ -65,14 +74,14 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         fontSize: 16,
         borderRadius: 10,
-        padding: 12
+        padding: 12,
     },
     backImage: {
         width: '100%',
         height: 340,
         position: 'absolute',
         top: 0,
-        resizeMode: 'cover'
+        resizeMode: 'cover',
     },
     whiteSheet: {
         width: '100%',
@@ -80,12 +89,12 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 0,
         backgroundColor: '#fff',
-        borderTopLeftRadius: 60
+        borderTopLeftRadius: 60,
     },
     form: {
         flex: 1,
         justifyContent: 'center',
-        marginHorizontal: 30
+        marginHorizontal: 30,
     },
     button: {
         backgroundColor: '#f57c00',
@@ -93,6 +102,6 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 40
+        marginTop: 40,
     }
 })
