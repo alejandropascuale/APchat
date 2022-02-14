@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, TextInput, Image, SafeAreaView, TouchableOpacity, StatusBar, Alert } from 'react-native';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../config';
+import { auth } from '../config/firebase';
 const backgroundImage = require('../assets/background.png');
 
 export default function Login ({  navigation }) {
@@ -17,8 +17,8 @@ export default function Login ({  navigation }) {
     }
 
     return (
-        <View>
-            
+        <View style={styles.container}>
+            <Image source={backgroundImage} style={styles.backImage} />
         </View>
     )
 }
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 0,
         backgroundColor: '#fff',
-        borderTopLeftRadius: '60'
+        borderTopLeftRadius: 60
     },
     form: {
         flex: 1,
