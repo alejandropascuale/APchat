@@ -11,20 +11,20 @@ import Signup from './screens/Signup';
 import Home from './screens/Home';
 
 const Stack = createStackNavigator();
-const authenticatedUserContext = createContext({}); 
+const AuthenticatedUserContext = createContext({}); 
 
-const authenticatedUserProvider = ({ children }) => {
+const AuthenticatedUserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   return (
-    <authenticatedUserContext.Provider value={{user, setUser}}>
+    <AuthenticatedUserContext.Provider value={{user, setUser}}>
       {children}
-    </authenticatedUserContext.Provider>
+    </AuthenticatedUserContext.Provider>
   )
 }
 
 function ChatStack () {
   return (
-    <Stack.Navigator defaultScreenOptions={Home} >
+    <Stack.Navigator defaultScreenOptions={Home} screenOptions={{ headerShown: false }} >
       <Stack.Screen name='Home' component={Home}/>
       <Stack.Screen name='Chat' component={Chat}/>
     </Stack.Navigator>
@@ -41,7 +41,7 @@ function AuthStack () {
 }
 
 function RootNavigation () {
-  const {user, setUser} = useContext(authenticatedUserContext);
+  const {user, setUser} = useContext(AuthenticatedUserContext);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged (auth,
@@ -69,8 +69,8 @@ function RootNavigation () {
 
 export default function App() {
   return (
-    <authenticatedUserProvider>
+    <AuthenticatedUserProvider>
       <RootNavigation />
-    </authenticatedUserProvider> 
+    </AuthenticatedUserProvider> 
   )
 }

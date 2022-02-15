@@ -1,8 +1,8 @@
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { StyleSheet, TouchableOpacity, View, Image } from 'react-native';
-import { FontAwesome, Entypo } from '@expo/vector-icons';
 import colors from '../colors';
+import { FontAwesome, Entypo } from '@expo/vector-icons';
 const catImageUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_November_2010-1a.jpg/767px-Cat_November_2010-1a.jpg'
 
 const Home = () => {
@@ -28,9 +28,9 @@ const Home = () => {
     }, [navigation]);
 
     return (
-        <View>
+        <View style={styles.container}>
             <TouchableOpacity 
-                onPress={() => NavigationContainer.navigate('Chat')}
+                onPress={() => navigation.navigate('Chat')}
                 style={styles.chatButton}
                 >
                 <Entypo name='chat' size={24} color={colors.lightGray} />
